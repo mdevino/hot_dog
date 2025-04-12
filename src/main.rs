@@ -1,3 +1,8 @@
+mod backend;
+mod components;
+
+use crate::components::*;
+
 use dioxus::prelude::*;
 
 static CSS: Asset = asset!("/assets/main.css");
