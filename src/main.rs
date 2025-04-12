@@ -20,8 +20,7 @@ fn main() {
 fn App() -> Element {
     rsx! {
         document::Stylesheet { href: CSS }
-        Title {}
-        DogView {}
+        Router::<Route> {}
     }
 }
 
@@ -83,4 +82,10 @@ thread_local! {
 
         conn
     }
+}
+
+#[derive(Routable, Clone, PartialEq)]
+enum Route {
+    #[route("/")]
+    DogView,
 }
