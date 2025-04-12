@@ -24,16 +24,6 @@ fn App() -> Element {
     }
 }
 
-#[component]
-fn Title() -> Element {
-    rsx! {
-        div {
-            id: "title",
-            h1 { "HotDog! 🌭" }
-        }
-    }
-}
-
 fn DogView() -> Element {
     let mut img_src = use_resource(|| async move {
         reqwest::get("https://dog.ceo/api/breeds/image/random")
@@ -86,6 +76,7 @@ thread_local! {
 
 #[derive(Routable, Clone, PartialEq)]
 enum Route {
+    #[layout(NavBar)]
     #[route("/")]
     DogView,
 }
